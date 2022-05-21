@@ -45,4 +45,9 @@ public class Loader {
         double height = Double.parseDouble(br.readLine());
         System.out.printf("Ваш вес: %d кг, ваш рост: %d см", weight, height);
     }
+
+    @Override
+    public static void task3() {
+
+    }
 }
