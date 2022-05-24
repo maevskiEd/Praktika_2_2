@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,7 +16,10 @@ public class Loader {
 //        task4();
 //        task4_2();
 //        task5();
-        task7();
+//        task7();
+//        task8();
+        task9();
+
 /*
         try {
             task2_2();
@@ -124,10 +128,10 @@ public class Loader {
     public static void task7() {
         int tra = 5, trb = 6, trh = 4, sqa = 5, rd = 7;
 
-        Perimeter triangle = new Perimeter("triangle",tra,trb,tra);
-        Perimeter triangleH = new Perimeter("triangle",trb,trh);
-        Perimeter square = new Perimeter("square",sqa);
-        Perimeter circle = new Perimeter("circle",rd);
+        Perimeter triangle = new Perimeter("triangle", tra, trb, tra);
+        Perimeter triangleH = new Perimeter("triangle", trb, trh);
+        Perimeter square = new Perimeter("square", sqa);
+        Perimeter circle = new Perimeter("circle", rd);
 
         System.out.println("Perimetr triangle: " + triangle.getP());
         System.out.println("Perimetr triangle: " + triangleH.getP());
@@ -136,6 +140,31 @@ public class Loader {
 
         Circle circle2 = new Circle(rd);
         System.out.println("Perimetr circle: " + circle2.getPerimeter());
+        Square square2 = new Square(sqa);
+        System.out.println("Perimetr square: " + square2.getPerimeter());
+        Triangle triangle2 = new Triangle(tra, tra, trb);
+        System.out.println("Perimetr triangle: " + triangle2.getPerimeter());
+        Triangle triangleH2 = new Triangle(trb, trh);
+        System.out.println("Perimetr triangle: " + triangleH2.getPerimeter());
+    }
+
+    public static void task8() {
+//        DecimalFormat dF = new DecimalFormat("0.00");
+        double min = 0, max = 2 * Math.PI, step = Math.PI / 18;
+        double sinCosY, cosSinY;
+
+        for (double x = min; x <= max; x += step) {
+            sinCosY = Math.sin(Math.cos(x));
+            cosSinY = Math.cos(Math.sin(x));
+            if(sinCosY>cosSinY) System.out.printf("sin(cos(x)) = %.2f больше cos(sin(x)) = %.2f%n",sinCosY,cosSinY);
+            else if(sinCosY<cosSinY) System.out.printf("sin(cos(x)) = %.2f меньше cos(sin(x)) = %.2f%n",sinCosY,cosSinY);
+            else System.out.printf("sin(cos(x)) = %.2f равно cos(sin(x)) = %.2f%n",sinCosY,cosSinY);
+//            System.out.print(dF.format(+" ");
+        }
+    }
+
+    public static void task9(){
+
     }
 }
 
