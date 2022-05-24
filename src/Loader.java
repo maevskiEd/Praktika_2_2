@@ -125,7 +125,7 @@ public class Loader {
         int tra = 5, trb = 6, trh = 4, sqa = 5, rd = 7;
 
         Perimeter triangle = new Perimeter("triangle",tra,trb,tra);
-        Perimeter triangleH = new Perimeter("triangle",tra,trh);
+        Perimeter triangleH = new Perimeter("triangle",trb,trh);
         Perimeter square = new Perimeter("square",sqa);
         Perimeter circle = new Perimeter("circle",rd);
 
@@ -133,6 +133,9 @@ public class Loader {
         System.out.println("Perimetr triangle: " + triangleH.getP());
         System.out.println("Perimetr square: " + square.getP());
         System.out.println("Perimetr circle: " + circle.getP());
+
+        Circle circle2 = new Circle(rd);
+        System.out.println("Perimetr circle: " + circle2.getPerimeter());
     }
 }
 
