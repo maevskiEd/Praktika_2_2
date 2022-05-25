@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,15 +12,17 @@ public class Loader {
 
     public static void main(String[] args) {
         System.out.println("Практические задачи.2.10.");
-        task1();
+        //task1();
         //       task2();
 //        task4();
 //        task4_2();
 //        task5();
 //        task7();
 //        task8();
-        task9();
-
+//        task9();
+//        task10();
+        //    task13();
+        task14();
 /*
         try {
             task2_2();
@@ -156,15 +159,66 @@ public class Loader {
         for (double x = min; x <= max; x += step) {
             sinCosY = Math.sin(Math.cos(x));
             cosSinY = Math.cos(Math.sin(x));
-            if(sinCosY>cosSinY) System.out.printf("sin(cos(x)) = %.2f больше cos(sin(x)) = %.2f%n",sinCosY,cosSinY);
-            else if(sinCosY<cosSinY) System.out.printf("sin(cos(x)) = %.2f меньше cos(sin(x)) = %.2f%n",sinCosY,cosSinY);
-            else System.out.printf("sin(cos(x)) = %.2f равно cos(sin(x)) = %.2f%n",sinCosY,cosSinY);
+            if (sinCosY > cosSinY)
+                System.out.printf("sin(cos(x)) = %.2f больше cos(sin(x)) = %.2f%n", sinCosY, cosSinY);
+            else if (sinCosY < cosSinY)
+                System.out.printf("sin(cos(x)) = %.2f меньше cos(sin(x)) = %.2f%n", sinCosY, cosSinY);
+            else System.out.printf("sin(cos(x)) = %.2f равно cos(sin(x)) = %.2f%n", sinCosY, cosSinY);
 //            System.out.print(dF.format(+" ");
         }
     }
 
-    public static void task9(){
+    public static void task9() {
+        int j, iterN = 0;
+        int[] arrNum = new int[100];
+        arrNum[0] = 1;
+        arrNum[1] = 2;
+        for (int n = 3, i = 2; n <= 100; i++, n += 2) arrNum[i] = n;
+        System.out.println(Arrays.toString(arrNum));
+        int i = 2;
+        while (arrNum[i] <= 10) {
+            if (arrNum[i] != 0)
+                for (j = i + 1; j < arrNum.length; j++) {
+                    if ((arrNum[j] % arrNum[i]) == 0) arrNum[j] = 0;
+                }
+            i++;
+        }
+        System.out.println(Arrays.toString(arrNum));
+        for (i = 0; i < arrNum.length; i++) if (arrNum[i] != 0) iterN++;
+        int[] arrSimpleNum = new int[iterN];
+        j = 0;
+        for (i = 0; i < arrNum.length; i++) if (arrNum[i] != 0) arrSimpleNum[j++] = arrNum[i];
+        System.out.println(Arrays.toString(arrSimpleNum));
+    }
 
+    public static void task10() {
+        int age;
+
+        System.out.print("Введите возраст клиента: ");
+        age = scanner.nextInt();
+        if (age < 14) System.out.println("прокол ушей в присутствии родителей;");
+        else if (age < 18) System.out.println("прокол ушей, пупка, языка, носа в присутствии родителей;");
+        else System.out.println("без ограничений.");
+    }
+
+    public static void task13() {
+        for (int lVedro1 = 30, lVedro2 = 0, lMimo = 0; lVedro1 > 0; ) {
+            lVedro1--;
+            lMimo++;
+            System.out.printf("%d порция, 1-ое ведро %d литров, ", lMimo, lVedro1);
+            if (lMimo == 10) {
+                lMimo = 0;
+                System.out.printf("2-ое ведро %d литров.%n", lVedro2);
+                continue;
+            }
+            lVedro2++;
+            System.out.printf("2-ое ведро %d литров.%n", lVedro2);
+        }
+    }
+
+    public static void task14() {
+        Cat barsik = new Cat("Barsik");
+        System.out.println(barsik.name + " weight: "+barsik.weight+" age: "+barsik.age);
     }
 }
 
