@@ -22,7 +22,8 @@ public class Loader {
 //        task9();
 //        task10();
         //    task13();
-        task14();
+//        task14();
+        task15();
 /*
         try {
             task2_2();
@@ -217,8 +218,16 @@ public class Loader {
     }
 
     public static void task14() {
+        Tamagochi tm = new Tamagochi("Mursik");
+        while (!tm.isExit) {
+            tm.menu();
+        }
         Cat barsik = new Cat("Barsik");
         System.out.println(barsik.name + " weight: "+barsik.weight+" age: "+barsik.age);
+    }
+
+    public static void task15(){
+
     }
 }
 
